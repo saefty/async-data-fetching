@@ -1,11 +1,9 @@
 package de.saefty.user
 
-import io.smallrye.mutiny.Multi
 import io.smallrye.mutiny.Uni
 import javax.ws.rs.GET
 import javax.ws.rs.Path
 import javax.ws.rs.PathParam
-import javax.ws.rs.QueryParam
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient
 
 /**

@@ -1,6 +1,5 @@
 package de.saefty.comment
 
-import io.smallrye.mutiny.Multi
 import io.smallrye.mutiny.Uni
 import javax.ws.rs.GET
 import javax.ws.rs.Path
@@ -15,8 +14,7 @@ import org.eclipse.microprofile.rest.client.inject.RestClient
 class PostResource(
     @RestClient private val postClient: PostClient
 ) {
-
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    fun getComments(@QueryParam("userId") userId: String?): Uni<List<Post>> = postClient.getComments(userId)
+    fun getComments(@QueryParam("userId") userId: String?): Uni<List<Post>> = postClient.getPosts(userId)
 }

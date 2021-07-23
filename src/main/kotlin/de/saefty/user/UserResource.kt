@@ -1,7 +1,6 @@
 package de.saefty.user
 
 import io.smallrye.common.annotation.Blocking
-import io.smallrye.mutiny.Multi
 import io.smallrye.mutiny.Uni
 import javax.ws.rs.GET
 import javax.ws.rs.Path
