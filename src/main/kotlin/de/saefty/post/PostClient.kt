@@ -1,4 +1,4 @@
-package de.saefty.comment
+package de.saefty.post
 
 import io.smallrye.mutiny.Uni
 import javax.ws.rs.GET

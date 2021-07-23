@@ -1,4 +1,4 @@
-package de.saefty.comment
+package de.saefty.post
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
