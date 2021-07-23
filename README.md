@@ -54,3 +54,11 @@ http://jsonplaceholder.typicode.com/posts?userId=1 to obtain all comments writte
 * Go functional / serverless approaches
 * Deploy
 * CI/CD
+
+
+### Design Decisions
+
+* Use Quarkus or Micronaut, Both support serverless
+  Can be extended to stage 3, but both don't limit in the future development
+  Spring Boot is an overhead. Running with spring on serverless is nearly impossible.
+  JVM Stack / Kotlin is well known. 
