@@ -10,7 +10,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient
  * Fetches postings on website.
  * Read only.
  */
-@RegisterRestClient(configKey = "placeholder-api")
+@RegisterRestClient
 @Path("/posts")
 interface PostClient {
     @GET

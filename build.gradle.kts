@@ -1,9 +1,12 @@
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
 plugins {
     val kotlinVersion = "1.4.32"
 
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.allopen") version kotlinVersion
     id("io.quarkus")
+    id("jacoco")
 }
 
 repositories {
@@ -34,6 +37,9 @@ dependencies {
 
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("io.rest-assured:rest-assured")
+    testImplementation("org.mockito:mockito-inline:3.11.2")
+    testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
+    testImplementation("com.github.tomakehurst:wiremock-jre8:2.29.1")
 }
 
 group = "de.saefty"
@@ -51,6 +57,30 @@ allOpen {
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
+    kotlinOptions.jvmTarget = "11"
     kotlinOptions.javaParameters = true
+}
+
+tasks {
+    test {
+        finalizedBy(jacocoTestReport)
+        useJUnitPlatform {}
+        testLogging {
+            events = setOf(
+                TestLogEvent.FAILED,
+                TestLogEvent.PASSED,
+                TestLogEvent.SKIPPED
+            )
+        }
+    }
+    jacoco {
+        toolVersion = "0.8.7"
+    }
+    jacocoTestReport {
+        reports {
+            xml.isEnabled = true
+            csv.isEnabled = false
+            html.destination = file("$buildDir/reports/jacocoHtml")
+        }
+    }
 }

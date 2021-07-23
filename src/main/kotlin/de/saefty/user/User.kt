@@ -3,7 +3,6 @@ package de.saefty.user
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import de.saefty.post.Post
-import io.smallrye.mutiny.Uni
 
 
 /**
