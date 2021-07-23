@@ -1,5 +1,6 @@
 package de.saefty.comment
 
+import io.smallrye.mutiny.Multi
 import javax.ws.rs.GET
 import javax.ws.rs.Path
 import javax.ws.rs.Produces
@@ -16,5 +17,5 @@ class PostResource(
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    fun getComments(@QueryParam("userId") userId: String?): List<Post> = postClient.getComments(userId)
+    fun getComments(@QueryParam("userId") userId: String?): Multi<Post> = postClient.getComments(userId)
 }

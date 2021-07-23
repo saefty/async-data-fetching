@@ -1,6 +1,8 @@
 package de.saefty.user
 
 import io.smallrye.common.annotation.Blocking
+import io.smallrye.mutiny.Multi
+import io.smallrye.mutiny.Uni
 import javax.ws.rs.GET
 import javax.ws.rs.Path
 import javax.ws.rs.PathParam
@@ -17,11 +19,11 @@ class UserResource(
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    fun getAllUsers(): List<User> = userClient.getAllUsers()
+    fun getAllUsers(): Multi<List<User>> = userClient.getAllUsers()
 
     @GET
     @Path("/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
     @Blocking
-    fun getUserById(@PathParam("userId") userId: String): User = userClient.getUserById(userId)
+    fun getUserById(@PathParam("userId") userId: String): Uni<User> = userClient.getUserById(userId)
 }

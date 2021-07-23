@@ -1,5 +1,7 @@
 package de.saefty.user
 
+import io.smallrye.mutiny.Multi
+import io.smallrye.mutiny.Uni
 import javax.ws.rs.GET
 import javax.ws.rs.Path
 import javax.ws.rs.PathParam
@@ -14,9 +16,9 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient
 @Path("/users")
 interface UserClient {
     @GET
-    fun getAllUsers(): List<User>
+    fun getAllUsers(): Multi<List<User>>
 
     @GET
     @Path("/{userId}")
-    fun getUserById(@PathParam("userId") userId: Any): User
+    fun getUserById(@PathParam("userId") userId: Any): Uni<User>
 }
