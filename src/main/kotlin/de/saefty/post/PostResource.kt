@@ -16,5 +16,5 @@ class PostResource(
 ) {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    fun getComments(@QueryParam("userId") userId: String?): Uni<List<Post>> = postClient.getPosts(userId)
+    fun getComments(@QueryParam("userId") userId: Int?): Uni<Set<Post>> = postClient.getPosts(userId)
 }

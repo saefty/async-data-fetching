@@ -14,7 +14,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient
 @Path("/users")
 interface UserClient {
     @GET
-    fun getAllUsers(): Uni<List<User>>
+    fun getAllUsers(): Uni<Set<User>>
 
     @GET
     @Path("/{userId}")

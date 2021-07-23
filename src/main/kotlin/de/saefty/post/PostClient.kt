@@ -14,5 +14,5 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient
 @Path("/posts")
 interface PostClient {
     @GET
-    fun getPosts(@QueryParam("userId") userId: String? = null): Uni<List<Post>>
+    fun getPosts(@QueryParam("userId") userId: Int? = null): Uni<Set<Post>>
 }
