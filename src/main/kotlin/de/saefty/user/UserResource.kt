@@ -16,10 +16,10 @@ class UserResource(
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    fun getAllUsers() = userClient.getAllUsers()
+    fun getAllUsers(): List<User> = userClient.getAllUsers()
 
     @GET
     @Path("/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
-    fun getUserById(@PathParam("userId") userId: String) = userClient.getUserById(userId)
+    fun getUserById(@PathParam("userId") userId: String): User = userClient.getUserById(userId)
 }
