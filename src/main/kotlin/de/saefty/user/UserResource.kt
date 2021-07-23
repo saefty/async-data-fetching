@@ -19,7 +19,7 @@ class UserResource(
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    fun getAllUsers(): Multi<List<User>> = userClient.getAllUsers()
+    fun getAllUsers(): Uni<List<User>> = userClient.getAllUsers()
 
     @GET
     @Path("/{userId}")
