@@ -1,5 +1,6 @@
 package de.saefty.user
 
+import io.smallrye.common.annotation.Blocking
 import javax.ws.rs.GET
 import javax.ws.rs.Path
 import javax.ws.rs.PathParam
@@ -21,5 +22,6 @@ class UserResource(
     @GET
     @Path("/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
+    @Blocking
     fun getUserById(@PathParam("userId") userId: String): User = userClient.getUserById(userId)
 }
