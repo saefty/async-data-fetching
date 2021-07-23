@@ -27,3 +27,7 @@ http://jsonplaceholder.typicode.com/posts?userId=1 to obtain all comments writte
 
 * Quarkus, can be extended to serverless but can also stay "simple" as a microservice.
 * Maybe Kotlin, I am familiar with this and can code faster.
+* Spring Boot might be an overkill for such a simple use case
+* Check for reactive solutions over using Futures / Promises and dealing with thread pooling as a developer
+* Consider using a rest client / library to prevent implementation overhead connecting to the suggested endpoints
+
