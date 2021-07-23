@@ -9,8 +9,8 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient
 @Path("/users")
 interface UserClient {
     @GET
-    fun getAllUsers(): List<User>
+    fun getAllUsers(): List<Map<String, Any>>
 
     @GET
-    fun getUserById(@QueryParam("userId") userId: String): User
+    fun getUserById(@QueryParam("userId") userId: String): Map<String, Any>
 }

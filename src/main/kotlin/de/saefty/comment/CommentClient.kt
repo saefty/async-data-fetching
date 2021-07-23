@@ -6,10 +6,8 @@ import javax.ws.rs.QueryParam
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient
 
 @RegisterRestClient(configKey = "placeholder-api")
-@Path("/comments")
+@Path("/posts")
 interface CommentClient {
     @GET
-    fun getAllComment(): List<Comment> = listOf()
-    @QueryParam("userId")
-    fun getCommentsByUserId(userId: String): List<Comment> = listOf()
+    fun getComments(@QueryParam("userId") userId: String?): List<Map<String, Any>>
 }

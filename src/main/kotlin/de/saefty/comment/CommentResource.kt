@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType
 import org.eclipse.microprofile.openapi.annotations.tags.Tag
 import org.eclipse.microprofile.rest.client.inject.RestClient
 
-@Path("/comments")
+@Path("/posts")
 @Tag(name = "comment")
 class CommentResource(
     @RestClient private val commentClient: CommentClient
@@ -16,10 +16,5 @@ class CommentResource(
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    fun getAllComments() = commentClient.getAllComment()
-
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    fun getUserById(@QueryParam("userId") userId: String) =
-        commentClient.getCommentsByUserId(userId)
+    fun getComments(@QueryParam("userId") userId: String?): List<Map<String, Any>> = commentClient.getComments(userId)
 }
