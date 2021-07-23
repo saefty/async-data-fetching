@@ -1,58 +1,64 @@
-# async-data-fetching Project
+# Async Data Fetching
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+## Description
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+Fetch asynchronous data from an API".
+Your task is to write a script or app, which gathers data from two endpoints asynchronously, 
+merges the responses and displays them in any way, for example as JSON response from an REST API.
+For example you could use these two endpoints:
+http://jsonplaceholder.typicode.com/users/1 to obtain a user's data
+http://jsonplaceholder.typicode.com/posts?userId=1 to obtain all comments written by that user.
 
-## Running the application in dev mode
+## Notes
 
-You can run your application in dev mode that enables live coding using:
-```shell script
-./gradlew quarkusDev
-```
+### Functional requirements
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+* Read data from two APIs
+* Build REST API
+* Async fetching
+* Read only
+* No state, no database
 
-## Packaging and running the application
+### Non-Functional requirements
 
-The application can be packaged using:
-```shell script
-./gradlew build
-```
-It produces the `quarkus-run.jar` file in the `build/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `build/quarkus-app/lib/` directory.
+* Check for serverless technologies
+* Ensure scalability
 
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./gradlew build -Dquarkus.package.type=uber-jar
-```
+### Ideas
 
-The application is now runnable using `java -jar build/quarkus-app/quarkus-run.jar`.
+* Quarkus, can be extended to serverless but can also stay "simple" as a microservice.
+* Maybe Kotlin, I am familiar with this and can code faster.
+* Spring Boot might be an overkill for such a simple use case
+* Check for reactive solutions over using Futures / Promises and dealing with thread pooling as a developer
+* Consider using a rest client / library to prevent implementation overhead connecting to the suggested endpoints
+* Possibly use a Stream to deliver even quicker data to the client
+  Also beneficial when the backend APIs would support streaming.
+  Also beneficial when the client (end-consumer?) has a slower internet connection
 
-## Creating a native executable
+#### Implementation Level / Concept
 
-You can create a native executable using: 
-```shell script
-./gradlew build -Dquarkus.package.type=native
-```
+##### Stage 1
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
-```shell script
-./gradlew build -Dquarkus.package.type=native -Dquarkus.native.container-build=true
-```
+* Microservice, One Repository
+* REST API without streaming
+* Try out and evaluate technologies
+* Use reactive libraries for async data processing
+* Generate OAS Spec
 
-You can then execute your native executable with: `./build/async-data-fetching-1.0.0-SNAPSHOT-runner`
+##### Stage 2
 
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/gradle-tooling.
+* Add JSON streaming endpoints
 
-## Related Guides
+##### Stage 3
 
-- Kotlin ([guide](https://quarkus.io/guides/kotlin)): Write your services in Kotlin
+* Go functional / serverless approaches
+* Deploy
+* CI/CD
 
-## Provided Code
 
-### RESTEasy Reactive
+### Design Decisions
 
-Easily start your Reactive RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+* Use Quarkus or Micronaut, Both support serverless
+  Can be extended to stage 3, but both don't limit in the future development
+  Spring Boot is an overhead. Running with spring on serverless is nearly impossible.
+  JVM Stack / Kotlin is well known. 
