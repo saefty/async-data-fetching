@@ -12,6 +12,7 @@ http://jsonplaceholder.typicode.com/posts?userId=1 to obtain all comments writte
 ## Notes
 
 ### Functional requirements
+
 * Read data from two APIs
 * Build REST API
 * Async fetching
@@ -30,4 +31,26 @@ http://jsonplaceholder.typicode.com/posts?userId=1 to obtain all comments writte
 * Spring Boot might be an overkill for such a simple use case
 * Check for reactive solutions over using Futures / Promises and dealing with thread pooling as a developer
 * Consider using a rest client / library to prevent implementation overhead connecting to the suggested endpoints
+* Possibly use a Stream to deliver even quicker data to the client
+  Also beneficial when the backend APIs would support streaming.
+  Also beneficial when the client (end-consumer?) has a slower internet connection
 
+#### Implementation Level / Concept
+
+##### Stage 1
+
+* Microservice, One Repository
+* REST API without streaming
+* Try out and evaluate technologies
+* Use reactive libraries for async data processing
+* Generate OAS Spec
+
+##### Stage 2
+
+* Add JSON streaming endpoints
+
+##### Stage 3
+
+* Go functional / serverless approaches
+* Deploy
+* CI/CD
