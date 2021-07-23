@@ -1,9 +1,16 @@
 package de.saefty.user
 
-import javax.enterprise.context.ApplicationScoped
+import javax.ws.rs.GET
+import javax.ws.rs.Path
+import javax.ws.rs.QueryParam
+import org.eclipse.microprofile.rest.client.inject.RegisterRestClient
 
-@ApplicationScoped
-class UserClient {
-    fun getAllUsers(): List<User> = listOf()
-    fun getUserById(userId: String): User = User("")
+@RegisterRestClient(configKey = "placeholder-api")
+@Path("/users")
+interface UserClient {
+    @GET
+    fun getAllUsers(): List<User>
+
+    @GET
+    fun getUserById(@QueryParam("userId") userId: String): User
 }
