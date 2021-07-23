@@ -1,4 +1,8 @@
 package de.saefty.user
 
-class User {
-}
+import de.saefty.extensions.NoArgConstructor
+
+@NoArgConstructor
+data class User(
+    val id: String
+)

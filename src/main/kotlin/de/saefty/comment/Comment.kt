@@ -1,5 +1,8 @@
 package de.saefty.comment
 
-class Comment {
-    fun getAllComments(): List<Comment> = listOf()
-}
+import de.saefty.extensions.NoArgConstructor
+
+@NoArgConstructor
+data class Comment(
+    val id: String
+)
