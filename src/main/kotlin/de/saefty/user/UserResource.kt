@@ -6,11 +6,12 @@ import javax.ws.rs.PathParam
 import javax.ws.rs.Produces
 import javax.ws.rs.core.MediaType
 import org.eclipse.microprofile.openapi.annotations.tags.Tag
+import org.eclipse.microprofile.rest.client.inject.RestClient
 
 @Path("/users")
 @Tag(name = "user")
 class UserResource(
-    private val userClient: UserClient
+    @RestClient private val userClient: UserClient
 ) {
 
     @GET
