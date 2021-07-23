@@ -10,11 +10,11 @@ import org.eclipse.microprofile.rest.client.inject.RestClient
 
 @Path("/posts")
 @Tag(name = "comment")
-class CommentResource(
-    @RestClient private val commentClient: CommentClient
+class PostResource(
+    @RestClient private val postClient: PostClient
 ) {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    fun getComments(@QueryParam("userId") userId: String?): List<Map<String, Any>> = commentClient.getComments(userId)
+    fun getComments(@QueryParam("userId") userId: String?): List<Post> = postClient.getComments(userId)
 }
