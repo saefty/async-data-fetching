@@ -1,3 +1,12 @@
+# Usage
+
+The Open API Spec can be found at localhost:8080/swagger-ui. The Interface can be also used to send requests to the given endpoints.
+No authentication is required to try out this demo project.
+
+Two resources are implemented.
+* /users
+* /comments
+
 # Async Data Fetching
 
 ## Description
